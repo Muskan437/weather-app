@@ -6,10 +6,10 @@ export default function MapsIndex() {
     <section className="maps-index">
       <div className="page-header">
         <p className="eyebrow">Map Catalog</p>
-        <h1>All configured maps</h1>
+        <h1>Every scene already routes to a 16×9 canvas</h1>
         <p className="page-copy">
-          Every map route is provisioned so OBS playlists can latch onto the right
-          canvas once designs land. Click Open to preview the placeholder version.
+          These placeholder frames are OBS-ready and include map metadata so we can
+          pre-build streaming playlists ahead of the official PNG designs.
         </p>
       </div>
       <div className="maps-grid">
@@ -19,8 +19,12 @@ export default function MapsIndex() {
               <h3>{mapItem.name}</h3>
               <p className="map-card__type">{mapItem.type}</p>
             </div>
+            <div className="map-card__meta">
+              <span>ID: {mapItem.id}</span>
+              <span>Type: {mapItem.type}</span>
+            </div>
             <Link to={`/maps/${mapItem.id}`} className="ghost-button">
-              Open
+              Open preview
             </Link>
           </article>
         ))}

@@ -63,6 +63,20 @@ export default function MapView() {
           </>
         )}
       </MapStage>
+      <div className="map-view__meta">
+        <div>
+          <p className="eyebrow">Map ID</p>
+          <p>{map.id}</p>
+        </div>
+        <div>
+          <p className="eyebrow">City labels</p>
+          <p>{citiesForMap.length}</p>
+        </div>
+        <div>
+          <p className="eyebrow">Target ratio</p>
+          <p>16:9 · 1920×1080</p>
+        </div>
+      </div>
     </section>
   )
 }

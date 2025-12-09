@@ -12,6 +12,8 @@
   font-size: 0.75rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  animation: float 16s ease-in-out infinite;
 }
 
 .city-label__icon {
@@ -33,4 +35,14 @@
 .city-label__temp {
   font-weight: 700;
   font-size: 0.95rem;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-4px);
+  }
 }
