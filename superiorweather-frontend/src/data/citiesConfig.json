@@ -1,0 +1,90 @@
+[
+  {
+    "id": "nyc",
+    "name": "New York",
+    "x": 1450,
+    "y": 350,
+    "maps": [
+      "national-temps",
+      "national-radar",
+      "regional-northeast-temps",
+      "regional-northeast-radar",
+      "local-nyc-temps",
+      "local-nyc-radar"
+    ]
+  },
+  {
+    "id": "bos",
+    "name": "Boston",
+    "x": 1550,
+    "y": 280,
+    "maps": [
+      "national-temps",
+      "regional-northeast-temps",
+      "local-boston-temps"
+    ]
+  },
+  {
+    "id": "phl",
+    "name": "Philadelphia",
+    "x": 1460,
+    "y": 420,
+    "maps": [
+      "regional-northeast-temps",
+      "local-philly-temps"
+    ]
+  },
+  {
+    "id": "mia",
+    "name": "Miami",
+    "x": 1470,
+    "y": 760,
+    "maps": [
+      "regional-southeast-temps",
+      "local-miami-temps"
+    ]
+  },
+  {
+    "id": "chi",
+    "name": "Chicago",
+    "x": 1200,
+    "y": 440,
+    "maps": [
+      "national-temps",
+      "regional-midwest-temps",
+      "local-chicago-temps"
+    ]
+  },
+  {
+    "id": "den",
+    "name": "Denver",
+    "x": 960,
+    "y": 520,
+    "maps": [
+      "national-temps",
+      "regional-rockies-temps",
+      "local-denver-temps"
+    ]
+  },
+  {
+    "id": "atl",
+    "name": "Atlanta",
+    "x": 1400,
+    "y": 620,
+    "maps": [
+      "regional-southeast-temps",
+      "local-atlanta-temps"
+    ]
+  },
+  {
+    "id": "la",
+    "name": "Los Angeles",
+    "x": 350,
+    "y": 650,
+    "maps": [
+      "regional-southwest-temps",
+      "local-sf-temps",
+      "local-lasvegas-temps"
+    ]
+  }
+]

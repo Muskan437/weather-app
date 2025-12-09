@@ -1,0 +1,12 @@
+{
+  "name": "twilio-demo",
+  "version": "1.0.0",
+  "description": "Minimal Twilio SMS proof-of-concept for SuperiorWeather alerts.",
+  "main": "twilioDemo.js",
+  "scripts": {
+    "start": "node twilioDemo.js"
+  },
+  "dependencies": {
+    "twilio": "^4.17.0"
+  }
+}
