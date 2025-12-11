@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import mapsData from '../data/mapsConfig.json'
 
 const stats = [
   { label: 'Maps ready', value: '50+' },
@@ -7,7 +8,31 @@ const stats = [
   { label: 'Status', value: 'OBS live ready' }
 ]
 
+const categories = [
+  {
+    key: 'national',
+    title: 'National Coverage',
+    description: 'Main stage maps that cover the entire country.'
+  },
+  {
+    key: 'regional',
+    title: 'Regional Focus',
+    description: 'Focused states/regions for more intimate storytelling.'
+  },
+  {
+    key: 'local',
+    title: 'Local Forecasts',
+    description: 'City and metro only canvases for hyper-local streaming.'
+  }
+]
+
+function getMapsForType(type) {
+  return mapsData.filter((map) => map.type === type)
+}
+
 export default function Home() {
+  const tvImage = '/images/tv.png'
+
   return (
     <section className="home-page">
       <div className="hero-panel">
@@ -15,9 +40,9 @@ export default function Home() {
           <p className="eyebrow">Milestone 1</p>
           <h1>SuperiorWeather Livestream System</h1>
           <p className="page-copy hero-copy">
-            Building the core UI frame for live weather streams. Placeholder
-            maps and mock weather labels mimic the broadcast grain so we can
-            confirm layouts before assets and back-end APIs arrive.
+            Building the broadcast-grade dashboard that will later drive OBS
+            streams. Placeholder maps, mock labels, and pre-wired routes keep
+            the layout faithful while we await the real assets.
           </p>
           <Link to="/maps" className="primary-button hero-button">
             Open the map catalog
@@ -38,22 +63,65 @@ export default function Home() {
         ))}
       </div>
 
-      <div className="home-focus">
-        <div>
-          <h2>Broadcast-grade canvas</h2>
-          <p className="page-copy">
-            Each map route corresponds to a dedicated OBS scene. The placeholder
-            1920×1080 stage mirrors the final PNGs, so the stream layout remains
-            pixel-perfect when the real graphics and data drop in later milestones.
-          </p>
-        </div>
-        <div>
-          <h2>City labels & mock data</h2>
-          <p className="page-copy">
-            Labels clamp to the base coordinate grid and adjust with the viewport
-            so you can sketch how city overlays will behave once we plug in the
-            backend weather + Twilio alert feeds.
-          </p>
+      <div className="dashboard-wrapper">
+        <div className="dashboard-grid">
+          <aside className="dashboard-column">
+            <div className="dashboard-column__logo">
+              <span>⚡</span>
+              <div>
+                <p>SuperiorWeather</p>
+                <small>Live alert frame</small>
+              </div>
+            </div>
+            <div className="dashboard-column__slot">
+              <span>Now streaming</span>
+              <strong>Team Coverage · Winter Storm</strong>
+              <p>Switching between the national + local grids.</p>
+            </div>
+            <div className="dashboard-column__slot dashboard-column__slot--muted">
+              <span>Fallback content</span>
+              <div className="dashboard-placeholder" aria-hidden="true" />
+            </div>
+          </aside>
+
+          <div className="dashboard-main">
+            <div className="dashboard-tv-shell">
+              <div className="dashboard-tv">
+                <img src={tvImage} alt="Studio coverage timeline" />
+                <div className="dashboard-tv__badge">Team Coverage</div>
+              </div>
+              <div className="dashboard-tv__grid">
+                <span>National</span>
+                <span>Now · 55°F</span>
+                <span>Forecast · 53°F Low</span>
+                <span>Alerts live</span>
+              </div>
+            </div>
+
+            <div className="dashboard-categories">
+              {categories.map((category) => {
+                const list = getMapsForType(category.key).slice(0, 3)
+                return (
+                  <article key={category.key} className="dashboard-category-card">
+                    <div>
+                      <p className="eyebrow">{category.title}</p>
+                      <h3>{category.description}</h3>
+                    </div>
+                    <ul>
+                      {list.map((map) => (
+                        <li key={map.id}>
+                          <Link to={`/maps/${map.id}`}>{map.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link to="/maps" className="ghost-button">
+                      View all {category.key} maps
+                    </Link>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
